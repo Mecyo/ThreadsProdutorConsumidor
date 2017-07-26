@@ -46,20 +46,35 @@ public class Programa {
             
             filosofos = new ArrayList<Filosofo>();
             garfos = new ArrayList<Garfo>();
-            
+            int j;
             for (int i = 0; i < 5; i++) {
-                garfos.add(new Garfo("Garfo-" + i + 1));
+                j = i +1;
+                garfos.add(new Garfo("Garfo-" + j));
             }
             
             for (int i = 0; i < garfos.size(); i++) {
                 int proximo = i + 1;
+                int k = proximo;
                 if(i == garfos.size() - 1)
                     proximo = 0;
-                    
-                filosofos.add(new Filosofo("Filosofo-" + proximo, garfos.get(i), garfos.get(i)));
-                filosofos.get(i).pensar();
+                
+                Filosofo filo = new Filosofo("Filosofo-" + k, garfos.get(i), garfos.get(proximo));
+                filo.setSem(sem2);
+                filosofos.add(filo);
+                garfos.get(i).setAtivo(filo);
+                /*filosofos.get(i).pensar();
                 filosofos.get(i).esperar();
-                filosofos.get(i).comer();
+                filosofos.get(i).comer();*/
+            }
+            
+            
+            while(true) {
+                
+                for (int i = 0; i < filosofos.size(); i++) {
+                    filosofos.get(i).run();
+                }
+                
+                
             }
             
         }

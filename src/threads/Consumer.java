@@ -34,7 +34,5 @@ public class Consumer extends Thread {
             }
             sem.up();
         }
-
     }
-
 }

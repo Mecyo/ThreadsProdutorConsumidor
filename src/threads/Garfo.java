@@ -19,11 +19,14 @@ class Garfo {
     }
 
     public String getNome(Filosofo verifica) {
-        if(ativo.equals(verifica))
+        if(ativo != null && ativo.equals(verifica))
             return nome;
         
-        return "";
+        return null;
     }
-    
+
+    public void setAtivo(Filosofo ativo) {
+        this.ativo = ativo;
+    }
     
 }
